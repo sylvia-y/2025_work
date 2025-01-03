@@ -3,9 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>test</title>
+    <title>[js]스크롤이 바닥찍을 때 이벤트 실행</title>
 </head>
 <body>
-    test
+    <script>
+        $(".upto_5").scroll(function(){
+        let wrap_height = $(".upto_5").innerHeight();
+        let scrollTop = $(".upto_5").scrollTop();
+        let scroll_Height = $(".upto_5").prop("scrollHeight");
+        // console.log("wrap_height:"+wrap_height);
+        // console.log("scrollTop:"+scrollTop);
+        // console.log("scroll_Height:"+scroll_Height);
+
+        // 스크롤이 바닥쳤을 경우 화살표 제거
+        if ( (wrap_height + scrollTop) == scroll_Height ) {
+            $(".lucky_gift_arr").addClass("hidden");
+        }else{
+            $(".lucky_gift_arr").removeClass("hidden");
+        }
+    });
+
+    </script>
+     <div class="lucky_gift_wrap">
+        <div class="lucky_gift_box ">
+            <div class="gift_title">
+            </div>
+            <div class="gift_clover_wrap">
+                <div class="gift_num"></div>
+                <div class="gift_num"></div>
+                <div class="gift_num"></div>
+                <div class="gift_num"></div>
+                <div class="gift_prize">
+                    <img src="images/live_airpop3.png" alt="airpop3">
+                </div>
+            </div>
+        </div>
+        <img src="images/live_lucky_line.png" class="live_lucky_line" alt="행운권 하단 점선">
+    </div>
+    <a href="javascript:" class="lucky_gift_arr">
+        <img src="images/lucky_gift_arr.png" alt="행운권 wrap 화살표">
+    </a>
 </body>
 </html>
